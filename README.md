@@ -8,40 +8,38 @@ Natasyahratu Zulharni | 4222401005 | RET503 Computer Vision and Deep Learning
 
 Security Patrol Robot membutuhkan kemampuan untuk mengenali objek di lingkungan sekitar saat melakukan patroli. Salah satu objek yang perlu dibedakan adalah mobil dan motor.
 
-Pada proyek ini digunakan metode transfer learning dengan model **ResNet-50 pretrained ImageNet** untuk melakukan klasifikasi gambar menjadi dua kelas, yaitu **car** dan **motorcycle**.
+Pada proyek ini digunakan metode transfer learning menggunakan model **ResNet-50 pretrained ImageNet** untuk melakukan klasifikasi gambar menjadi dua kelas, yaitu **car** dan **motorcycle**.
 
-Tiga metode training dibandingkan untuk melihat perbedaan performanya:
+Beberapa metode training dibandingkan untuk melihat perbedaan performanya, yaitu:
 
-- **Feature Extraction** — hanya fully connected layer (fc) yang dilatih, sedangkan layer lainnya dibekukan.
-- **Partial Fine-Tuning** — layer4 dan fully connected layer (fc) yang dilatih.
-- **Full Fine-Tuning** — seluruh layer pada ResNet-50 dilatih kembali.
+- **Feature Extraction** — seluruh layer ResNet-50 dibekukan dan hanya fully connected layer (fc) yang dilatih.
+- **Partial Fine-Tuning** — sebagian layer ResNet-50, yaitu `layer4` dan fully connected layer (fc), yang dilatih.
+- **Full Fine-Tuning** — seluruh layer ResNet-50 pretrained dilatih kembali.
+- **Training from Scratch** — ResNet-50 dilatih dari awal tanpa menggunakan bobot pretrained ImageNet.
+
+Perbandingan dilakukan berdasarkan akurasi training, akurasi validation, akurasi test, waktu training, dan epoch pertama ketika akurasi validation mencapai 90%.
 
 ## Dataset
 
-Dataset terdiri dari **200 gambar** mobil dan motor yang dibagi menjadi:
-
-| Dataset | Jumlah |
-|---------|-------:|
-| Train | 160 |
-| Validation | 20 |
-| Test | 20 |
-| **Total** | **200** |
-
-Kelas yang digunakan:
+Dataset terdiri dari **114 gambar** yang terbagi menjadi dua kelas:
 
 - `car`
 - `motorcycle`
 
-Dataset disimpan dalam `dataset_patrol.zip` dengan struktur:
+Dataset tidak dipisahkan dalam folder Train, Validation, dan Test. Seluruh gambar disimpan dalam satu folder, kemudian dibagi secara acak menggunakan seed `42` agar hasil pembagian dapat direproduksi.
+
+Pembagian dataset:
+
+| Dataset | Jumlah |
+|---------|-------:|
+| Train | 92 |
+| Validation | 11 |
+| Test | 11 |
+| **Total** | **114** |
+
+Struktur dataset:
 
 ```text
 dataset_patrol/
-├── Train/
-│   ├── car/
-│   └── motorcycle/
-├── Val/
-│   ├── car/
-│   └── motorcycle/
-└── Test/
-    ├── car/
-    └── motorcycle/
+├── car/
+└── motorcycle/
