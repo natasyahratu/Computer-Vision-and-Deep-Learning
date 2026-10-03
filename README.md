@@ -1,5 +1,3 @@
-# Computer Vision and Deep Learning
-
 ## Klasifikasi Mobil dan Motor pada Security Patrol Robot Menggunakan ResNet-50
 
 Natasyahratu Zulharni | 4222401005 | RET503 Computer Vision and Deep Learning
