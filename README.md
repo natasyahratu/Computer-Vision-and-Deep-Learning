@@ -1,6 +1,8 @@
-## Klasifikasi Mobil dan Motor pada Security Patrol Robot Menggunakan ResNet-50
+# Klasifikasi Mobil dan Motor Menggunakan ResNet-50
 
 Natasyahratu Zulharni | 4222401005 | RET503 Computer Vision and Deep Learning
+
+https://colab.research.google.com/drive/1oWGbW20Y4GdG8AgjkQBGSWdqjFfJFWIw?usp=sharing
 
 ## Deskripsi
 
